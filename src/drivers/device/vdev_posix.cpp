@@ -336,7 +336,7 @@ extern "C" {
 					ret = -ret;
 				}
 
-				if (ret && ret != -ETIMEDOUT) {
+				if (ret && (ret != -ETIMEDOUT) && (ret != -EAGAIN)) {
 					PX4_WARN("%s: px4_poll() sem error", thread_name);
 				}
 
